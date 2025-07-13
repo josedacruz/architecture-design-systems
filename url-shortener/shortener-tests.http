@@ -1,0 +1,13 @@
+### short a url
+POST http://localhost:8080/shorten
+Content-Type: "application/json"
+
+{
+    "long_url" : "http://www.reddit.com"
+}
+
+
+### Redirect
+GET http://localhost:8080/1
+
+
