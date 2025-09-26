@@ -1,0 +1,16 @@
+### register
+POST http://localhost:8080/register
+Content-Type: application/json
+
+{
+    "username": "user1"
+}
+
+### verify
+POST http://localhost:8080/verify
+Content-Type: application/json
+
+{
+    "username": "user1",
+    "totp_code": "529524"
+}
