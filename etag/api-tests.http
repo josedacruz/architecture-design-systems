@@ -1,0 +1,29 @@
+@host=http://localhost:5000
+
+### Get document with id 1
+GET http://localhost:5000/docs/1
+
+
+### Dont get document with id 1 if not modified
+GET http://localhost:5000/docs/1
+If-None-Match: W/"1-0cbf5f4e"
+
+### Update document with id 1 only if not modified
+PUT http://localhost:5000/docs/1
+Content-Type: application/json
+If-Match:  W/"1-0cbf5f4e"
+
+{
+  "title": "Document 1 - updated",
+  "content": "This is the updated content of document 1."
+}   
+
+### Update document with id 1 only if not modified - should fail
+PUT http://localhost:5000/docs/1
+Content-Type: application/json
+If-Match:  W/"1-0cbf5f4e"
+
+{
+  "title": "Document 1 - updated",
+  "content": "This is the updated content of document 1."
+}   
