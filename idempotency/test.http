@@ -1,0 +1,27 @@
+@host=http://localhost:5000
+
+### a regular post
+POST {{host}}/payments
+Content-Type: application/json
+Idempotency-Key: abc123
+
+{
+  "amount": 100
+}
+
+### a different post
+POST {{host}}/payments
+Content-Type: application/json
+Idempotency-Key: abc1234
+
+{
+  "amount": 100
+}
+
+### without idempotency key
+POST {{host}}/payments
+Content-Type: application/json
+
+{
+  "amount": 100
+}
